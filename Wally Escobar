@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menú Intercalado con Fondo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+  <style>
+        font-family: sans-serif;
+}
+
+.container {
+    width: 90%; /* Ancho del 90% del dispositivo */
+    max-width: 960px; /* Ancho máximo para evitar que se vea muy ancho en pantallas grandes */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px;
+}
+
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-image: url('https://i.etsystatic.com/21060982/r/il/763fd3/4280587800/il_fullxfull.4280587800_laed.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      height: 100vh;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    
+    .center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 700px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.5); 
+  border: 4px solid rgba(0, 200, 120, 0.8); 
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.6);
+  animation: fadeUp 1.5s ease forwards;
+  z-index: 10;
+  backdrop-filter: blur(5px); 
+}
+
+ .center-text h2 {
+  font-size: 2.6rem;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 600;
+  color: seagreen;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+  text-shadow:
+    2px 2px 6px rgba(0,0,0,0.7),
+    0 0 12px rgba(255, 165, 0, 0.8);
+}
+
+.center-text h1 {
+  font-size: 5.5rem;
+  font-family: 'Chewy', cursive;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin: 0;
+  background: linear-gradient(30deg, greenyellow, green);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 10s infinite;
+  text-shadow:
+    3px 3px 8px rgba(0,0,0,0.7),
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 25px rgba(255,255,255,0.9)
+}
+.center-text p {
+  font-size: 2.8rem;
+  font-family: 'Permanent Marker', cursive;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-shadow:
+    2px 2px 6px rgba(0,0,0,0.8),
+    0 0 15px rgba(255, 140, 0, 0.9);
+  opacity: 1;
+}
+
+    @keyframes fadeUp {.center-text p {
+  font-size: 2.8rem;
+  font-family: 'Permanent Marker', cursive;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-shadow:
+    2px 2px 6px rgba(0,0,0,0.8),
+    0 0 15px rgba(255, 140, 0, 0.9);
+  opacity: 1;
+}
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    @keyframes shine {
+      0% {
+        background-position: 200% 0;
+      }
+      100% {
+        background-position: -200% 0;
+      }
+    }
+
+    .hamburger {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      width: 40px;
+      height: 30px;
+      cursor: pointer;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+    .hamburger div {
+      height: 4px;
+      background-color: rgba(255,255,255,0.9);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar {
+      width: 300px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-height: 95vh;
+      overflow-y: auto;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+      z-index: 5;
+    }
+
+    .sidebar a {
+  text-decoration: none;
+  width: 160px;
+  height: 160px;
+  background: #00c878;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+  transform-style: preserve-3d;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+    .sidebar a span.text {
+      display: block;
+      transform: rotate(-45deg);
+      white-space: nowrap;
+      flex: none;
+    }
+
+    .sidebar a svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+      flex: none;
+      transform: rotate(-45deg);
+    }
+
+   .sidebar a:hover {
+  background: #00e68a; 
+  transform: scale(1.05);
+  box-shadow: 4px 4px 15px rgba(0, 255, 180, 0.8); 
+}
+    .sidebar a:nth-child(odd) {
+      align-self: flex-start;
+    }
+
+    .sidebar a:nth-child(even) {
+      align-self: flex-end;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        justify-content: flex-start;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.85);
+        padding-top: 60px;
+        transform: translateX(100%);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.7);
+        border-radius: 0;
+        z-index: 999;
+      }
+
+      .sidebar.show {
+        transform: translateX(0);
+      }
+    }
+    .location-button {
+  position: absolute;
+  left: 75px;
+  top: 75%;
+  transform: translateY(-50%);
+  text-align: center;
+  z-index: 15;
+  cursor: pointer;
+}
+
+.location-button .icon {
+  width: 60px;
+  height: 60px;
+  fill: rgba(255, 255, 255, 0.9);
+  background: rgba: #00c878;
+  padding: 12px;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(0, 255, 180, 0.8);
+  transition: transform 0.3s ease;
+}
+
+.location-button span {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background: #00c878;
+  padding: 6px 14px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  font-family: 'Comic Sans MS', cursive;
+  transition: background 0.3s ease;
+}
+
+.location-button:hover .icon {
+  transform: scale(1.1);
+}
+
+.location-button:hover span {
+  background: rgba #00e68a;
+}
+.bottom-bar {
+  position: fixed;
+  bottom: 20px;
+  left: 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 20;
+}
+
+.social-icons a {
+  text-decoration: none;
+}
+
+.social-icons .icon {
+  width: 40px;
+  height: 40px;
+  fill: white;
+  background-color: transparent;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icons .icon:hover {
+  transform: scale(1.15);
+  fill: #00e676;
+}
+
+.reference-box {
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-family: 'Comic Sans MS', cursive;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+}
+.mision-vision {
+  position: absolute;
+  top: 31%;
+  left: 12%;
+  transform: translate(-50%, -50%);
+  width: 150%;
+  max-width: 300px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 3px solid #00c878;
+  padding: 20px 30px;
+  color: white;
+  font-family: 'Comic Sans MS', cursive;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 200, 120, 0.6);
+  backdrop-filter: blur(4px);
+  text-align: center;
+  z-index: 11;
+}
+
+.mision-vision h2 {
+  margin: 10px 0 5px;
+  color: #00ffae;
+  font-size: 1.6rem;
+}
+
+.mision-vision p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+  </style>
+</head>
+<body>
+   
+  <a href="Ubicacion de Wally Escobar.html" class="location-button">
+  <svg viewBox="0 0 24 24" class="icon">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+  </svg>
+  <span>Ubicación</span>
+</a>
+  
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <nav class="sidebar" id="sidebar">
+    <a href="inscripciones.html"inscripciones>
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7v6c0 5 4 9 10 9s10-4 10-9V7l-10-5z"/></svg>
+      <span class="text">Inscripciones</span>
+    </a>
+    <a href="campeonato.html"campeonatos>
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
+      <span class="text">Campeonatos</span>
+    </a>
+    <a href="Galeria de Wally Escobar.html">
+      <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
+      <span class="text">Imágenes</span>
+    </a>
+    <a href="Acerca de Wally Escobar.html">
+      <svg viewBox="0 0 24 24"><path d="M12 12c2 0 4-2 4-4s-2-4-4-4-4 2-4 4 2 4 4 4z"/></svg>
+      <span class="text">Acerca de <br> Wally Escobar</span>
+    </a>
+    <a href="formulario de reservacion de cancha.html"reservas>
+      <svg viewBox="0 0 24 24"><path d="M3 12h18"/></svg>
+      <span class="text">Reservas</span>
+    </a>
+  </nav>
+
+  <div class="center-text">
+  <h2>VEN Y DIVIÉRTETE CON</h2>
+  <h1>WALLY ESCOBAR</h1>
+</div>
+<div class="mision-vision">
+  <h2>Misión</h2>
+  <p>Brindar espacios deportivos inclusivos y seguros donde niños, jóvenes y adultos puedan desarrollarse física y socialmente a través del deporte.</p>
+
+  <h2>Visión</h2>
+  <p>Ser el centro deportivo líder en formación y organización de campeonatos de voleibol en la región, promoviendo el talento juvenil y el espíritu deportivo.</p>
+</div>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.getElementById('sidebar');   
+
+    hamburger.addEventListener('click', () => {
+      sidebar.classList.toggle('show');
+    });
+  </script>
+<div class="bottom-bar">
+  <div class="social-icons">
+    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" class="icon">
+        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99h-2.54v-2.89h2.54V9.8c0-2.51 1.5-3.89 3.8-3.89 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.89h-2.34V22C18.34 21.12 22 16.99 22 12z"/>
+      </svg>
+    </a>
+    <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" class="icon">
+        <path d="M12 2c1.45 0 2.9.51 4 1.4v3.26c.84.31 1.75.49 2.67.49V10c-1.3 0-2.58-.3-3.67-.85v5.18c0 3.35-2.66 6.08-6 6.08s-6-2.73-6-6.08c0-3.18 2.49-5.88 5.62-6.07v2.97C7.72 11.39 6.5 12.78 6.5 14.41c0 1.58 1.28 2.86 2.85 2.86 1.57 0 2.85-1.28 2.85-2.86V2z"/>
+      </svg>
+    </a>
+    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" class="icon">
+        <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 7zm0 2a3 3 0 1 1-.001 6.001A3 3 0 0 1 12 9zm4.5-3a1.5 1.5 0 1 1-.001 2.999A1.5 1.5 0 0 1 16.5 6z"/>
+      </svg>
+    </a>
+    <a href="https://wa.me/59173834676" target="_blank">
+        <svg viewBox="0 0 24 24" class="icon"><path d="M20.52 3.48A11.77 11.77 0 0 0 1.99 17.59L1 22l4.53-1a11.77 11.77 0 0 0 14.99-17.52zM12 20a9.07 9.07 0 0 1-4.61-1.26l-.33-.2-2.69.59.57-2.62-.22-.34A9.07 9.07 0 1 1 12 20zm5.19-6.88c-.28-.14-1.64-.81-1.9-.9-.26-.1-.45-.14-.63.14-.18.28-.72.9-.88 1.09-.16.18-.33.21-.61.07-.28-.14-1.18-.43-2.26-1.38-.83-.74-1.39-1.65-1.56-1.93-.16-.28-.02-.43.12-.57.12-.12.28-.3.42-.45.14-.15.18-.25.27-.42.09-.17.05-.32-.02-.45-.07-.14-.63-1.5-.86-2.06-.23-.55-.47-.48-.65-.49h-.56c-.17 0-.45.07-.68.32-.23.26-.9.88-.9 2.15s.92 2.5 1.05 2.67c.14.18 1.8 2.76 4.38 3.88.61.26 1.09.42 1.46.54.61.19 1.17.16 1.61.1.49-.07 1.64-.67 1.87-1.31.23-.64.23-1.2.16-1.31-.07-.1-.26-.17-.54-.31z"/></svg>
+      </a>
+  </div>
+  <div class="reference-box">
+    Referencia: 73834676
+  </div>
+</div>
+  </div>
+</div>
+</body>
+</html>
