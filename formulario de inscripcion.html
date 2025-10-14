@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulario de Inscripción</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Prompt', sans-serif;
+      background-image: url('https://static.nike.com/a/images/f_auto,cs_srgb/w_960,c_limit/a9fd7034-70c5-43b8-9ffc-dc9cbee87a0c/%C2%BFcu%C3%A1les-son-las-posiciones-en-el-v%C3%B3leibol.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding: 50px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px orange;
+      color: #ffcc70;
+      animation: fadeInDown 1s ease;
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      animation: fadeInUp 1.5s ease;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      box-shadow: 0 0 10px orange;
+    }
+
+    .btn-enviar {
+      background: linear-gradient(45deg, #ff9800, #ff5722);
+      color: white;
+      padding: 14px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-enviar:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Inscripción Escuela Wally</h1>
+
+    <form>
+      <label for="nombre">Nombre del Estudiante</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="tutor">Nombre del Tutor</label>
+      <input type="text" id="tutor" name="tutor" required />
+
+      <label for="edad">Edad</label>
+      <input type="number" id="edad" name="edad" required min="3" max="20" />
+
+      <label for="horario">Horarios Preferidos</label>
+      <select id="horario" name="horario" required>
+        <option value="">-- Selecciona un horario --</option>
+        <option value="mañana">Mañana (8:00 - 10:00)</option>
+        <option value="tarde">Tarde (14:00 - 16:00)</option>
+        <option value="noche">Noche (18:00 - 20:00)</option>
+      </select>
+
+      <label for="telefono">Número de Teléfono</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="Ej: 73834676" required />
+
+      <button type="submit" class="btn-enviar">Enviar Inscripción</button>
+    </form>
+  </div>
+</body>
+</html>

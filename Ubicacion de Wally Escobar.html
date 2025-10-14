@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ubicación - Wally Escobar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(120deg, silver, greenyellow);
+      color: block;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+    header {
+      background-color: green;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      font-size: 2.8em;
+      font-weight: bold;
+      animation: fadeInDrop 1.2s ease;
+    }
+    #map {
+      height: 500px;
+      width: 90%;
+      max-width: 1000px;
+      margin: 40px auto;
+      border-radius: 20px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+      animation: zoomIn 1.5s ease;
+    }
+    .info-text {
+      max-width: 800px;
+      margin: 20px auto 20px auto;
+      background: rgba red;
+      padding: 20px;
+      border-radius: 15px;
+      font-size: 1.1em;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      animation: slideUp 1.2s ease;
+    }
+    .btn-directions {
+      display: block;
+      margin: 0 auto 60px auto;
+      padding: 15px 30px;
+      background-color: greenyellow;
+      color: white;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      animation: slideUp 1.4s ease;
+      text-decoration: none;
+    }
+    .btn-directions:hover {
+      background-color: green;
+      transform: scale(1.05);
+    }
+    @keyframes fadeInDrop {
+      0% { transform: translateY(-80px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes zoomIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+.barra-superior {
+  background: linear-gradient(90deg, #537B2F, #537B2F);
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+.menu-superior {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+.menu-superior li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.menu-superior li a:hover {
+  background-color: #94d2bd;
+  color: #001219;
+  transform: scale(1.1);
+}
+  </style>
+</head>
+<body>
+<header class="barra-superior">
+  <nav>
+    <ul class="menu-superior">
+      <li><a href="pagina principal.html">Inicio</a></li>
+      <li><a href="inscripciones.html">Inscripciones</a></li>
+      <li><a href="campeonatos.html">Campeonatos</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="acerca.html">Acerca de Wally</a></li>
+      <li><a href="reservas.html">Reservas</a></li>
+      <li><a href="ubicacion.html">Ubicación</a></li>
+    </ul>
+  </nav>
+</header>
+  <header>
+    Ubicación de Wally Escobar 🗺
+  </header>  <div id="map">
+    <iframe
+      width="100%"
+      height="100%"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.2691808992373!2d-67.08299292274046!3d-17.96329512982966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDU3JzQ3LjkiUyA2N8KwMDUnMDAuOCJX!5e0!3m2!1ses!2sbo!4v1718309012345!5m2!1ses!2sbo"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>  <div class="info-text">
+    Encuéntranos exactamente en nuestro punto deportivo en la ciudad de Oruro. Fácil acceso y un ambiente único para el vóley. ¡Te esperamos!
+  </div>  <a class="btn-directions" href="https://www.google.com/maps/dir/?api=1&destination=-17.96329512982966,-67.08299292274046" target="_blank">
+    📍 Cómo llegar
+  </a>
+</body>
+</html>

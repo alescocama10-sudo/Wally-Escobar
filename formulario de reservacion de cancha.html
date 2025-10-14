@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reservaciones</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Rubik', sans-serif;
+      background: #222 url('https://w0.peakpx.com/wallpaper/832/299/HD-wallpaper-black-and-white-of-volleyball-volleyball.jpg') center/cover fixed no-repeat;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Botón Volver arriba */
+    .btn-volver {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #28a745;
+      background: linear-gradient(45deg, #2ecc71, #27ae60);
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(39, 174, 96, 0.5);
+      transition: background 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      font-family: 'Rubik', sans-serif;
+      font-size: 1rem;
+    }
+    .btn-volver:hover {
+      background: linear-gradient(45deg, #27ae60, #2ecc71);
+      transform: scale(1.05);
+    }
+
+    .form-container, .cancha-selector {
+      animation: fadeInUp 1s ease both;
+      width: 100%;
+      max-width: 960px;
+      box-sizing: border-box;
+    }
+    .form-container {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 480px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      animation-delay: 0.2s;
+      margin: 0 auto;
+    }
+    h2, h3 {
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 8px #ffcc70;
+      margin-bottom: 25px;
+    }
+    .form-group {
+      position: relative;
+      margin-bottom: 25px;
+    }
+    input[type="text"],
+    input[type="date"],
+    input[type="time"] {
+      width: 100%;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.9);
+      font-size: 1rem;
+      outline: none;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    input:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 10px rgba(255, 152, 0, 0.4);
+    }
+    label.floating-label {
+      position: absolute;
+      left: 15px;
+      top: 12px;
+      color: #666;
+      font-size: 0.9rem;
+      pointer-events: none;
+      transition: 0.3s ease;
+    }
+    input:focus + label.floating-label,
+    input:not(:placeholder-shown) + label.floating-label {
+      top: -10px;
+      left: 10px;
+      font-size: 0.75rem;
+      color: #ff9800;
+      background: white;
+      padding: 0 5px;
+      border-radius: 4px;
+    }
+    .btn-reservar {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(45deg, #28a745, #2ecc71);
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.3s;
+    }
+    .btn-reservar:hover {
+      background: linear-gradient(45deg, #27ae60, #22a54b);
+      transform: scale(1.05);
+    }
+    .cancha-selector {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 40px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      animation-delay: 0.4s;
+    }
+    .canchas {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .cancha-item {
+      flex: 1;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .cancha-item input[type="radio"] {
+      display: none;
+    }
+    .cancha-item img {
+      width: 100%;
+      max-width: 300px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 3px solid transparent;
+      transition: all 0.3s ease;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    .cancha-item input[type="radio"]:checked + img {
+      border-color: #28a745;
+      animation: resaltarCancha 0.6s ease forwards;
+    }
+    .cancha-item input[type="radio"]:checked ~ label.texto {
+      color: #28a745;
+    }
+    .cancha-item label.texto {
+      font-weight: bold;
+      color: white;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    .cancha-item label.img-label {
+      cursor: pointer;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .canchas {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes resaltarCancha {
+      0% { transform: scale(1) rotate(0deg); box-shadow: 0 0 0px transparent; }
+      50% { transform: scale(1.08) rotate(1deg); box-shadow: 0 0 20px #86d88e; }
+      100% { transform: scale(1.05) rotate(0.5deg); box-shadow: 0 0 12px #4CAF50; }
+    }
+    /* BARRA SUPERIOR */
+.barra-superior {
+  background: linear-gradient(90deg, #005f73, #0a9396);
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.menu-superior {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.menu-superior li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.menu-superior li a:hover {
+  background-color: #94d2bd;
+  color: #001219;
+  transform: scale(1.1);
+}
+  </style>
+</head>
+<body>
+<header class="barra-superior">
+  <nav>
+    <ul class="menu-superior">
+      <li><a href="pagina principal.html">inicio</a></li>
+      <li><a href="inscripciones.html">Inscripciones</a></li>
+      <li><a href="campeonato.html">Campeonatos</a></li>
+      <li><a href="galeria de Wally Escobar.html">Galería</a></li>
+      <li><a href="acerca de wally escobar.html">Acerca de Wally</a></li>
+      <li><a href="formulario de reservacion de cancha.html">Reservas</a></li>
+      <li><a href="ubicacion de Wally Escobar.html">Ubicación</a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="form-container">
+    <h2>Reservaciones</h2>
+    <form id="formulario">
+      <div class="form-group">
+        <input type="text" id="nombre" name="nombre" placeholder=" " required />
+        <label for="nombre" class="floating-label">Nombre completo</label>
+      </div>
+      <div class="form-group">
+        <input type="date" id="fecha" name="fecha" placeholder=" " required />
+        <label for="fecha" class="floating-label">Fecha deseada</label>
+      </div>
+      <div class="form-group">
+        <input type="time" id="hora" name="hora" placeholder=" " required />
+        <label for="hora" class="floating-label">Hora deseada</label>
+      </div>
+      <button type="submit" class="btn-reservar">Enviar</button>
+    </form>
+  </div>
+
+  <div class="cancha-selector">
+    <h3>Selecciona la cancha que deseas reservar:</h3>
+    <div class="canchas">
+      <div class="cancha-item">
+        <input type="radio" id="wally1" name="cancha" value="Wally 1" />
+        <label class="img-label" for="wally1">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp7I7PuFkWtUQnMyEZmT6hbnY44nPjJ87AyQ&s" alt="Wally 1" />
+        </label>
+        <label class="texto" for="wally1">Wally 1</label>
+      </div>
+      <div class="cancha-item">
+        <input type="radio" id="wally2" name="cancha" value="Wally 2" />
+        <label class="img-label" for="wally2">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ57Ghp8ZfC1VmPHdlFUoq2_dRFIxjgBqp_FQ&s" alt="Wally 2" />
+        </label>
+        <label class="texto" for="wally2">Wally 2</label>
+      </div>
+      <div class="cancha-item">
+        <input type="radio" id="mini" name="cancha" value="Mini Futbolito" />
+        <label class="img-label" for="mini">
+          <img src="https://www.parqueygrama.com/wp-content/uploads/2017/04/mini_cancha_futbol_01.jpg" alt="Mini Futbolito" />
+        </label>
+        <label class="texto" for="mini">Mini Futbolito</label>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("formulario").addEventListener("submit", function(e) {
+      const radios = document.querySelectorAll('input[name="cancha"]');
+      let seleccionado = false;
+      for (const r of radios) {
+        if (r.checked) {
+          seleccionado = true;
+          break;
+        }
+      }
+      if (!seleccionado) {
+        e.preventDefault();
+        alert("Por favor selecciona una cancha para continuar.");
+      }
+    });
+  </script>
+
+</body>
+</html>

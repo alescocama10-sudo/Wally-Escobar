@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conociendo a Wally Escobar</title>
+  <style>
+    body {
+
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1b1f1d, #004d40);
+      color: #f1f1f1;
+      overflow-x: hidden;
+    }
+
+    .volver {
+      position: fixed;
+      top: 15px;
+      left: 20px;
+      background: #00c853;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transition: background 0.3s ease, transform 0.3s ease;
+      z-index: 10;
+    }
+
+    .volver:hover {
+      background: #00e676;
+      transform: scale(1.05);
+    }
+
+    header {
+      background-color: #1b5e20;
+      color: #fff;
+      text-align: center;
+      padding: 50px 20px;
+      animation: slideInDown 1s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      text-shadow: 0 0 10px #00e676;
+    }
+
+    .content {
+      padding: 50px 20px;
+      animation: fadeIn 2s ease;
+    }
+
+    .history {
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.8;
+      font-size: 1.2em;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 40px;
+      animation: popIn 2s ease;
+    }
+
+    .images img {
+      width: 300px;
+      border-radius: 15px;
+      transition: transform 0.4s, box-shadow 0.4s;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    .images img:hover {
+      transform: scale(1.07);
+      box-shadow: 0 8px 25px #00e676;
+    }
+
+    @keyframes slideInDown {
+      from { transform: translateY(-100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    
+.barra-superior {
+  background: linear-gradient(90deg, #608334 #CBDDB5);
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.menu-superior {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.menu-superior li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.menu-superior li a:hover {
+  background-color: #94d2bd;
+  color: #001219;
+  transform: scale(1.1);
+}
+  </style>
+</head>
+<body>
+<header class="barra-superior">
+  <nav>
+    <ul class="menu-superior">
+      <li><a href="pagina principal.html">Inicio</a></li>
+      <li><a href="inscripciones.html">Inscripciones</a></li>
+      <li><a href="campeonatos.html">Campeonatos</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="acerca.html">Acerca de Wally</a></li>
+      <li><a href="reservas.html">Reservas</a></li>
+      <li><a href="ubicacion.html">Ubicación</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <header>
+    <h1>Conociendo a Wally Escobar</h1>
+  </header>
+
+  <div class="content">
+    <div class="history">
+      <p>
+        Wally Escobar nació como un sueño familiar apasionado por el vóley. Lo que comenzó con una sola cancha improvisada de futsal se convirtió en uno de los espacios deportivos más reconocidos de la zona. Fundado en 2021, Wally Escobar fue construido con esfuerzo, comunidad y el objetivo de inspirar a jóvenes a vivir el deporte con corazón.
+      </p>
+      <p>
+        Con más de 5 torneos organizados, una comunidad en crecimiento y un enfoque especial en el deporte mixto e inclusivo, Wally Escobar no es solo un lugar para jugar: es un lugar para crecer, compartir y brillar.
+      </p>
+      <p>
+        Actualmente, el complejo cuenta con iluminación nocturna, zona de snacks y espacios de entrenamiento. Además, sus torneos juveniles y escolares han sido plataforma para talentos que hoy compiten a nivel nacional.
+      </p>
+    </div>
+
+    <div class="images">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgJUQJdh4dVhZd6mKPr01du9Gj1IMEqqr6ww&s" alt="Cancha 1">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC1EfQd_2S3tVlcIkTm9vWBSA5EbKte1VPRQ&s" alt="Entrenamiento">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnfymnQ70s1pZtJfj6whkUTuE2MBvfMCeIOA&s" alt="Jugadores">
+    </div>
+  </div>
+
+</body>
+</html>

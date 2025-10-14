@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campeonato Intercolegial</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Prompt', sans-serif;
+      background: linear-gradient(to bottom right, #2e7d32, #a5d6a7);
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+    header {
+      padding: 30px;
+      background: rgba(0, 51, 0, 0.7);
+      box-shadow: 0 0 10px black;
+    }
+    h1 {
+      font-size: 4rem;
+      text-shadow: 2px 2px #000;
+      color: #b9f6ca;
+    }
+    .live {
+      margin-top: 10px;
+      background: #43a047;
+      padding: 5px 20px;
+      display: inline-block;
+      font-size: 1.2rem;
+      border-radius: 20px;
+    }
+    .matchup {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+    .team {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .team:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #69f0ae;
+    }
+    .team img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #ffffff44;
+    }
+    .vs {
+      font-size: 3rem;
+      color: #1b5e20;
+      font-weight: bold;
+      text-shadow: 1px 1px white;
+    }
+    .details {
+      background: rgba(0, 51, 0, 0.6);
+      padding: 20px;
+      margin: 0 auto 40px;
+      max-width: 500px;
+      border-radius: 15px;
+      font-size: 1.2rem;
+    }
+    .socials {
+      margin: 20px 0;
+      font-size: 1.5rem;
+    }
+    .volver {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #1b5e20;
+      padding: 10px 20px;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 30px;
+      text-decoration: none;
+    }
+    .volver:hover {
+      background-color: #66bb6a;
+    }
+.barra-superior {
+  background: linear-gradient(90deg, #142C14, #235347);
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.menu-superior {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.menu-superior li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.menu-superior li a:hover {
+  background-color: #94d2bd;
+  color: #001219;
+  transform: scale(1.1);
+}
+  </style>
+</head>
+<body>
+<header class="barra-superior">
+  <nav>
+    <ul class="menu-superior">
+      <li><a href="pagina principal.html">Inicio</a></li>
+      <li><a href="inscripciones.html">Inscripciones</a></li>
+      <li><a href="campeonatos.html">Campeonatos</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="acerca.html">Acerca de Wally</a></li>
+      <li><a href="reservas.html">Reservas</a></li>
+      <li><a href="ubicacion.html">Ubicación</a></li>
+    </ul>
+  </nav>
+</header>
+  <header>
+    <h1>Campeonato Intercolegial de Vóley</h1>
+    <div class="live">Proximo Partido</div>
+  </header>  <section class="matchup">
+    <div class="team">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXW4j6HHbVFhtLnEizh8_6PBtN1ERZwVly7A&s" alt="Team A">
+      <h2>S.S.M.P</h2>
+    </div>
+    <div class="vs">VS</div>
+    <div class="team">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnU6pM-xOdIlyo2jdnmTH1gZZhpCjXVewpeg&s" alt="Team B">
+      <h2>Ignacio Leon</h2>
+    </div>
+  </section>  <div class="details">
+    <p><strong>Fecha:</strong> 30 de julio de 2025</p>
+    <p><strong>Hora:</strong> 9:00 PM</p>
+    <p><strong>Lugar:</strong> U.E. Santa Maria Magdalen Postel "secundaria"</p>
+  </div>  <div class="socials">
+    📱 Síguenos: Facebook | Instagram | TikTok
+  </div>  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const equipos = document.querySelectorAll('.team');
+      equipos.forEach((equipo, index) => {
+        equipo.style.opacity = '0';
+        equipo.style.transform = 'translateY(50px)';
+        setTimeout(() => {
+          equipo.style.transition = 'all 0.8s ease';
+          equipo.style.opacity = '1';
+          equipo.style.transform = 'translateY(0)';
+        }, index * 300);
+      });
+    });
+  </script></body>
+</html>

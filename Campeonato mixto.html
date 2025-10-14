@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Torneo Mixtos - Wally Escobar</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url('https://estaticos-cdn.prensaiberica.es/clip/7f2e667a-5922-4b57-9c46-2bc8ff2ea5db_alta-libre-aspect-ratio_default_0.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+header {
+  background: linear-gradient(90deg, #00b894, #00e676);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  letter-spacing: 3px;
+}
+
+.volver {
+  margin-top: 10px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #00c878;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.volver:hover {
+  background-color: #00a768;
+}
+
+.section {
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 150, 0.5);
+  animation: fadeIn 1.5s ease;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #aaffcc;
+}
+
+.section p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #e0ffe0;
+}
+
+.equipos-lista {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.equipo {
+  background: rgba(0, 200, 120, 0.2);
+  border-left: 6px solid #00ffae;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  color: #dff;
+  box-shadow: 0 0 10px rgba(0,255,150,0.3);
+  animation: slideUp 0.7s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+/* BARRA SUPERIOR */
+.barra-superior {
+  background: linear-gradient(90deg, #2D5128, #0849);
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.menu-superior {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.menu-superior li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.menu-superior li a:hover {
+  background-color: #94d2bd;
+  color: #001219;
+  transform: scale(1.1);
+}
+  </style>
+</head>
+<body>
+  <!-- BARRA SUPERIOR DE NAVEGACIÓN -->
+<header class="barra-superior">
+  <nav>
+    <ul class="menu-superior">
+      <li><a href="pagina principal.html">Inicio</a></li>
+      <li><a href="inscripciones.html">Inscripciones</a></li>
+      <li><a href="campeonatos.html">Campeonatos</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="acerca.html">Acerca de Wally</a></li>
+      <li><a href="reservas.html">Reservas</a></li>
+      <li><a href="ubicacion.html">Ubicación</a></li>
+    </ul>
+  </nav>
+</header>
+  <header>
+    <h1>Torneo Mixtos - ¡Diversión para Todos!</h1>
+  </header>  <section class="section">
+    <h2>¿De qué se trata?</h2>
+    <p>El Torneo Mixto de Wally Escobar es una competencia donde la igualdad, la diversión y el respeto se fusionan en un ambiente deportivo. Equipos conformados por chicos y chicas compiten en una jornada llena de emoción, trabajo en equipo y juegos espectaculares.</p><h2>Equipos Destacados</h2>
+<div class="equipos-lista">
+  <div class="equipo">Loney toons ⚡ VS ⚡ Los Galacticos </div>
+  <div class="equipo">UPAL ⚡ VS ⚡ San Simón</div>
+  <div class="equipo">La Salle ⚡ VS ⚡ Cristo Rey</div>
+  <div class="equipo">FNI ⚡ VS ⚡ Copacabana</div>
+</div>
+
+  </section>
+</body>
+</html>

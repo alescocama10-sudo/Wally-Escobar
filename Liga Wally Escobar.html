@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liga Wally Escobar - Tabla de Posiciones</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Prompt', sans-serif;
+      background: url('https://media.istockphoto.com/id/613346376/es/foto/jugadores-profesionales-de-voleibol-en-acci%C3%B3n-en-la-cancha-nocturna.jpg?s=612x612&w=0&k=20&c=NRKKpk2vRb9c2m-6j1mxmfQhZvLAK9gFtDRrfFBW9wU=') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      overflow-x: hidden;
+    }
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 2s ease-in;
+    }
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      color: #b9f6ca;
+      text-shadow: 0 0 10px #00e676, 0 0 20px #1b5e20;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    h2 {
+      color: #ffffff;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      animation: fadeInUp 1.2s ease;
+    }
+    table {
+      width: 90%;
+      max-width: 800px;
+      border-collapse: collapse;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      animation: fadeInUp 1.5s ease;
+    }
+    thead {
+      background: linear-gradient(to right, #2e7d32, #81c784);
+    }
+    thead th {
+      padding: 15px;
+      font-size: 1rem;
+      color: #fff;
+      text-shadow: 1px 1px 3px #000;
+    }
+    tbody tr {
+      transition: background 0.3s, transform 0.3s;
+    }
+    tbody tr:nth-child(even) {
+      background-color: rgba(255,255,255,0.05);
+    }
+    tbody tr:hover {
+      background-color: rgba(255,255,255,0.2);
+      transform: scale(1.02);
+    }
+    td {
+      text-align: center;
+      padding: 14px;
+      font-size: 1rem;
+    }
+    .volver {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #00c853;
+      padding: 10px 20px;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .volver:hover {
+      background-color: #69f0ae;
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00e676; }
+      to { text-shadow: 0 0 20px #b9f6ca; }
+    }
+    /* BARRA SUPERIOR ESTILO */
+.barra-superior {
+  background: linear-gradient(90deg, #142C14, #0849);
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.menu-superior {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+.menu-superior li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.menu-superior li a:hover {
+  background-color: #94d2bd;
+  color: #001219;
+  transform: scale(1.1);
+}
+  </style>
+</head>
+<body>
+<header class="barra-superior">
+  <nav>
+    <ul class="menu-superior">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="inscripciones.html">Inscripciones</a></li>
+      <li><a href="campeonatos.html">Campeonatos</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="acerca.html">Acerca de Wally</a></li>
+      <li><a href="reservas.html">Reservas</a></li>
+      <li><a href="ubicacion.html">Ubicación</a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="overlay">
+    <h1>LIGA WALLY ESCOBAR</h1>
+    <h2>Tabla de Posiciones - Grupo A</h2><table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Equipo</th>
+      <th>Pt.</th>
+      <th>Pj.</th>
+      <th>Gd.</th>
+    </tr>
+  </thead>
+  <tbody id="tabla-equipos"></tbody>
+</table>
+
+  </div>  <script>
+    const equipos = [
+      { nombre: "Wally 1", puntos: 9, partidos: 3, diferencia: 10 },
+      { nombre: "Wally 2", puntos: 7, partidos: 3, diferencia: 6 },
+      { nombre: "Mini Fútbol", puntos: 4, partidos: 3, diferencia: -1 },
+      { nombre: "Coliseo A", puntos: 3, partidos: 3, diferencia: -3 },
+      { nombre: "Coliseo B", puntos: 1, partidos: 2, diferencia: -5 },
+      { nombre: "Escobar Juniors", puntos: 0, partidos: 2, diferencia: -7 }
+    ];
+
+    const tbody = document.getElementById("tabla-equipos");
+
+    equipos.forEach((equipo, index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${equipo.nombre}</td>
+        <td>${equipo.puntos}</td>
+        <td>${equipo.partidos}</td>
+        <td>${equipo.diferencia > 0 ? "+" + equipo.diferencia : equipo.diferencia}</td>
+      `;
+      tbody.appendChild(row);
+    });
+  </script></body>
+</html>

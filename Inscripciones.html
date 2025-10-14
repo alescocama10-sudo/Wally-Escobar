@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inscripciones - Escuela Wally Escobar</title>  <!-- Google Fonts -->  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Prompt:wght@400;700&display=swap" rel="stylesheet">  <style>
+    body {
+      margin: 0;
+      font-family: 'Prompt', sans-serif;
+      background-image: url('https://static.nike.com/a/images/f_auto,cs_srgb/w_960,c_limit/a9fd7034-70c5-43b8-9ffc-dc9cbee87a0c/%C2%BFcu%C3%A1les-son-las-posiciones-en-el-v%C3%B3leibol.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding: 50px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+    }
+
+    .btn-volver {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: linear-gradient(45deg, #00c853, #64dd17);
+      border: none;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-volver:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #64dd17;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px orange;
+      color: #ffcc70;
+      animation: slideInTop 1s ease forwards;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    .categorias {
+      background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 204, 112, 0.3);
+      margin-bottom: 30px;
+      max-width: 480px;
+      width: 100%;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .categorias p {
+      font-size: 1.5rem;
+      margin: 15px 0;
+      padding: 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 0 8px rgba(255, 204, 112, 0.2);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .categorias p:hover {
+      transform: scale(1.03);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    form {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      animation: fadeInUp 1.8s ease;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      box-shadow: 0 0 10px orange;
+    }
+
+    .btn-enviar {
+      background: linear-gradient(45deg, #ff9800, #ff5722);
+      color: white;
+      padding: 14px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-enviar:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInTop {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+.barra-superior {
+  background: linear-gradient(90deg, #608334, #97B770);
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.menu-superior {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+.menu-superior li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  font-size: 18px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.menu-superior li a:hover {
+  background-color: silver;
+  color: whiteh;
+  transform: scale(1.1);
+}
+  </style></head>
+<body>
+<header class="barra-superior">
+  <nav>
+    <ul class="menu-superior">
+      <li><a href="pagina principal.html">Inicio</a></li>
+      <li><a href="inscripciones.html">Inscripciones</a></li>
+      <li><a href="campeonato.html">Campeonatos</a></li>
+      <li><a href="galeria de Wally Escobar.html">Galería</a></li>
+      <li><a href="acerca de wally escobar.html">Acerca de Wally</a></li>
+      <li><a href="formulario de reservacion de cancha.html">Reservas</a></li>
+      <li><a href="ubicacion de Wally Escobar.html">Ubicación</a></li>
+    </ul>
+  </nav>
+</header>
+  <div class="overlay">
+    <h1>Escuela Wally Escobar</h1>
+<h2>Inscripciones en el club deportivo</h2>
+
+<div class="categorias">
+  <p>Categoría: 7 - 10 años</p>
+  <p>Categoría: 10 - 15 años</p>
+  <p>Categoría: 15 - 20 años</p>
+</div>
+
+<form>
+  <label for="nombre">Nombre del Estudiante</label>
+  <input type="text" id="nombre" name="nombre" required />
+
+  <label for="tutor">Nombre del Tutor</label>
+  <input type="text" id="tutor" name="tutor" required />
+
+  <label for="edad">Edad</label>
+  <input type="number" id="edad" name="edad" required min="3" max="20" />
+
+  <label for="categoria">Categoría de Inscripción</label>
+  <select id="categoria" name="categoria" required>
+    <option value="">-- Selecciona una categoría --</option>
+    <option value="7-10">7 - 10 años</option>
+    <option value="10-15">10 - 15 años</option>
+    <option value="15-20">15 - 20 años</option>
+  </select>
+
+  <label for="horario">Horarios Preferidos</label>
+  <select id="horario" name="horario" required>
+    <option value="">-- Selecciona un horario --</option>
+    <option value="mañana">Mañana (8:00 - 10:00)</option>
+    <option value="tarde">Tarde (14:00 - 16:00)</option>
+    <option value="noche">Noche (18:00 - 20:00)</option>
+  </select>
+
+  <label for="telefono">Número de Teléfono</label>
+  <input type="tel" id="telefono" name="telefono" placeholder="Ej: 73834676" required />
+
+  <button type="submit" class="btn-enviar">Enviar Inscripción</button>
+</form>
+
+  </div>
+</body>
+</html>
